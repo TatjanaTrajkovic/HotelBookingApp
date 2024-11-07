@@ -1,0 +1,252 @@
+body {
+    background-color: #13091c;
+    color: white;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    box-sizing: border-box;
+}
+main{
+    background-color: #13091c;
+    color: white;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 40px;
+    background-color: #13091c; 
+    color: white;  
+}
+
+.header-title {
+    text-align: left;
+}
+
+.header-title h1 {
+    margin: 0;
+    font-size: 2.3rem;
+}
+
+.header-title div {
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+.nav-main {
+    display: flex;
+    gap: 30px; 
+}
+
+.nav-main a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+.nav-main a:hover {
+    text-decoration: underline;
+}
+
+.nav-btn, 
+.input-box .btn {
+    background-color: rgb(255, 83, 21);
+    color: white;
+    font-size: 1.2em;
+    padding: 10px;
+    border-radius: 5px;
+    /* margin-right: 10px; */
+}
+
+.nav-btn:hover,
+.input-box .btn:hover{
+    background-color: #cd3801;
+    color: white;
+}
+
+.carousel-inner img{
+    width: 100%; 
+    height: 900px;
+    object-fit: cover;
+    margin: auto;
+}
+
+.booking-section {
+    padding-block: 0;  
+    margin: 0 230px;
+    min-width: 270px;
+}
+
+.booking-form {
+    /* font-size: 2rem; */
+    padding: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    background-color: #f3f4f6;
+    border-radius: 10px;
+    transform: translateY(-50%);
+    box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.114);
+}
+
+.input-box {
+    flex: 1 1 220px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    font-size: 1.5rem;
+}
+
+.input-box label {
+    font-weight: 500;
+    color: rgb(0, 0, 0);
+}
+
+.input-box input {
+    display: block;
+    width: 100%;
+    max-width: 200px;
+    padding: 20px;
+    /* color: black; */
+    font-size: 1.2rem;
+    outline: none;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+/* .third-img
+.second-img */
+.fifth-img {
+    object-fit: cover;
+    width: 100%;
+    
+}
+    
+.col-md-6 h2{
+    font-style: italic;
+    font-size: 1.8rem;
+    padding: 30px 0;
+    margin-bottom: 0;
+} 
+.col-md-6 p{
+    font-style: italic;
+    font-size: 1.4rem;
+    margin-bottom: 0;
+} 
+
+
+.contact {
+    text-align: center;
+    margin: 10rem 20rem 0rem 20rem;
+    padding-bottom: 10rem;
+    border-radius: 5px;
+   
+    
+}
+.contact h2 {
+    margin-bottom: 30px;
+}
+
+.form{
+    background-color: #13091c;
+    color:  #13091c;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 5px;
+    /* margin-bottom: 50px; */
+    width: 100%;
+    border: 1px solid #cd3801
+}
+
+/* .form label {
+    margin-top: 30px;
+    align-self: flex-start;
+    font-size: 1.4em;
+    width: 80%;
+    text-align: left;
+} */
+
+.form input, 
+.form textarea {
+    padding: 10px;
+    margin-top: 30px;
+    margin-bottom: 10px;
+    border: 1px solid rgb(153, 150, 150);
+    border-radius: 5px;
+    font-size: 1.4rem;
+    width: 80%;
+    box-sizing: border-box;
+    background-color:#f3f4f6 ;
+}
+
+.form > button {
+    width: 150px;
+    background-color:rgb(255, 83, 21);
+    color: white;
+    /* padding: 1.4em; */
+    cursor: pointer;
+    border-radius: 5px;
+    display: block;
+    font-size: 1.4rem;
+    padding: 10px 20px;
+    margin: 30px auto;
+}
+
+.form > button:hover{
+    background-color: #cd3801;
+    color: white;
+    cursor: pointer;
+}
+
+
+
+footer {
+    background-color: rgb(255, 83, 21);
+    font-size: 1.8rem;
+    text-align: center;
+    padding: 70px;
+    margin-top: 0;
+    color: white;
+    background-color: #cd3801;
+}
+
+.social-icons{
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    font-size: 1.8rem;
+}
+.social-icons a {
+    margin: 10px;
+    color: white; 
+    padding-bottom: 10px;
+  }
+  
+.social-icons a:hover {
+    color: #13091c; 
+}
+
+
+/* Grundläggande stil för små skärmar (mobil) */
+.container, .container-fluid {
+    padding: 0 10px;
+}
+
+.header-title h1 {
+    font-size: 2rem;
+}
+
+.nav-main a {
+    font-size: 1rem;
+    padding: 5px;
+}
+
+
+/* @media query radi na kraju projekta */
+
+
