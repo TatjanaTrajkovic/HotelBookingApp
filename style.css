@@ -16,7 +16,8 @@ header {
     align-items: center;
     padding: 40px;
     background-color: #13091c; 
-    color: white;  
+    color: white; 
+    /* font-size: 1.5rem;  */
 }
 
 .header-title {
@@ -86,7 +87,7 @@ header {
     justify-content: center;
     flex-wrap: wrap;
     gap: 1rem;
-    background-color: #f3f4f6;
+    background-color: white;
     border-radius: 10px;
     transform: translateY(-50%);
     box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.114);
@@ -114,16 +115,17 @@ header {
     /* color: black; */
     font-size: 1.2rem;
     outline: none;
-    border: 1px solid #ddd;
+    border: 1px solid #c2c0c0;
     border-radius: 5px;
 }
 
-/* .third-img
-.second-img */
+.input-box span{
+    color: rgb(255, 83, 21);
+}
+
 .fifth-img {
     object-fit: cover;
     width: 100%;
-    
 }
     
 .col-md-6 h2{
@@ -157,10 +159,11 @@ header {
     display: flex;
     flex-direction: column;
     align-items: center;
-    border-radius: 5px;
+    /* border-radius: 5px; */
     /* margin-bottom: 50px; */
     width: 100%;
-    border: 1px solid #cd3801
+    border-bottom: 1px solid #cd3801;
+    border-top: 1px solid #cd3801;
 }
 
 /* .form label {
@@ -231,20 +234,6 @@ footer {
     color: #13091c; 
 }
 
-
-/* Grundläggande stil för små skärmar (mobil) */
-.container, .container-fluid {
-    padding: 0 10px;
-}
-
-.header-title h1 {
-    font-size: 2rem;
-}
-
-.nav-main a {
-    font-size: 1rem;
-    padding: 5px;
-}
 
 
 /* @media query radi na kraju projekta */
