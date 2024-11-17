@@ -1,0 +1,200 @@
+import  { signInUser, signUpUser } from './api/signIn.js'
+import { createModal} from './utils/baseModal.js'
+import { validateSignUpForm } from './validation.js';
+
+
+
+
+function initUserEntry(){
+    const signInButton = document.querySelector('.nav-btn');
+    const signOutButton = document.querySelector('.nav-btn-out');
+    
+    if(signInButton){
+        signInButton.addEventListener('click', (event) => {
+            event.preventDefault();
+            signInModal();
+        })
+    }
+    if(signOutButton){
+        signOutButton.addEventListener('click', (event) => {
+            event.preventDefault();
+            sessionStorage.removeItem('currentUser');
+            toggleUserEntry();
+        })
+    }  
+}
+
+function toggleUserEntry(){
+    const currentUser = sessionStorage.getItem('currentUser');
+    const signInButton = document.querySelector('.nav-btn');
+    const signOutButton = document.querySelector('.nav-btn-out');
+
+    if(signInButton && signOutButton){
+        if(currentUser){
+            signInButton.classList.add('d-none');// display none iz bootstrap
+            signOutButton.classList.remove('d-none');
+        } else {
+            signInButton.classList.remove('d-none');// display none iz bootstrap
+            signOutButton.classList.add('d-none');
+        }
+    }
+}
+
+
+function signInModal(){
+    const existingSignInModal = document.getElementById('signInModal');
+    if(existingSignInModal){
+        existingSignInModal.remove();
+        const backdrop = document.querySelector('.modal-backdrop');
+        if(backdrop){
+            backdrop.remove();
+        }
+    }
+    createModal({ 
+        id: 'signInModal',
+        title: 'Sign in',
+        bodyContent: `
+            <div id="signInErrorMessage" class="alert alert-danger d-none" role="alert"></div>
+            <form id="signInForm">
+                <div class="mb-3">
+                    <input type="email" class="form-control" id="email" placeholder="Email adress..." required>
+                </div>
+                <div class="mb-3">
+                    <input type="password" class="form-control" id="password-sign-in" placeholder="Password..." required>
+                </div>
+            </form>
+            <div class="text-center mt-3">
+                <p class="mb-1">Don't have an account?</p>
+                <a href="#" class="text-primary" id="signUpLink">Sign Up</a>
+            </div>
+        `,
+
+        footerButtons: [
+            {   type: 'button', 
+                class: 'btn-secondary', 
+                text: 'Cancel',
+                dataDismiss: 'modal',
+            },
+            {   type: 'submit', 
+                class: 'btn-primary', 
+                text: 'Sign In',
+                form: 'signInForm',
+            }
+        ],
+
+        onModalShow: () => {
+            const signInForm = document.getElementById('signInForm');
+            signInForm.addEventListener('submit', async function(event){
+                event.preventDefault();
+                const email = document.getElementById('email').value;
+                const password = document.getElementById('password-sign-in').value;
+                const result = await signInUser(email, password);
+
+                if(result.success){
+                    sessionStorage.setItem('currentUser', JSON.stringify(result.user));
+                    toggleUserEntry();
+                    const modal = document.getElementById('signInModal');
+                    const bootstrapModal = bootstrap.Modal.getInstance(modal);
+                    bootstrapModal.hide();
+                } else {
+                    const errorMessage = document.getElementById('signInErrorMessage');
+                    if(errorMessage){
+                        errorMessage.textContent = result.message;
+                        errorMessage.classList.remove('d-none');
+                    }
+                }
+            });
+            const signUpLink = document.getElementById('signUpLink');
+            signUpLink.addEventListener('click', function(event){
+                event.preventDefault();
+                signUpModal();
+            })
+        }
+    })
+}
+
+
+
+function signUpModal() {
+    const signInModal = document.getElementById('signInModal');
+    if (signInModal) {
+        const closeButton = signInModal.querySelector('.btn-close');
+        if (closeButton) closeButton.click();
+    }
+
+    createModal({
+        id: 'signUpModal',
+        title: 'Sign Up',
+        bodyContent: `
+            <form id="signUpForm">
+                <div class="mb-3">
+                    <input type="text" class="form-control" id="firstName" placeholder="First Name" required>
+                    <div class="invalid-feedback">First name is required.</div>
+                </div>
+                <div class="mb-3">
+                    <input type="text" class="form-control" id="lastName" placeholder="Last Name" required>
+                    <div class="invalid-feedback">Last name is required.</div>
+                </div>
+                <div class="mb-3">
+                    <input type="email" class="form-control" id="signUpEmail" placeholder="Email Address" required>
+                    <div class="invalid-feedback">Please enter a valid email.</div>
+                </div>
+                <div class="mb-3">
+                    <input type="password" class="form-control" id="password-sign-up" placeholder="Password" required>
+                    <div class="invalid-feedback">Password must be at least 6 characters long.</div>
+                </div>
+                <div class="mb-3">
+                    <input type="password" class="form-control" id="confirmPassword" placeholder="Confirm Password" required>
+                    <div class="invalid-feedback">Passwords do not match.</div>
+                </div>
+            </form>
+        `,
+        footerButtons: [
+            { type: 'button', class: 'btn-secondary', text: 'Close', dataDismiss: 'modal' },
+            { type: 'submit', class: 'btn-primary', text: 'Sign Up', form: 'signUpForm' }
+        ],
+        onModalShow: () => {
+            const signUpForm = document.getElementById('signUpForm');
+            signUpForm.addEventListener('submit', async function(event) {
+                event.preventDefault();
+                if (validateSignUpForm()) {
+                    console.log('Sign-up form validated successfully');
+                    const userData = {
+                        firstName: document.getElementById('firstName').value,
+                        lastName: document.getElementById('lastName').value,
+                        email: document.getElementById('signUpEmail').value,
+                        password: document.getElementById('password-sign-up').value,
+                        bookings: []
+                    };
+                    const result = await signUpUser(userData);
+                    if (result) {
+                        console.log('User signed up successfully:', result);
+                    } else {
+                        console.log('User sign-up failed');
+                    }
+                } else {
+                    console.log('Sign-up form validation failed');
+                }
+            });
+            const modalElement = document.getElementById('signUpModal');
+            modalElement.addEventListener('hidden.bs.modal', function() {
+                modalElement.remove();
+                const backdrop = document.querySelector('.modal-backdrop');
+                if (backdrop) backdrop.remove();
+            });
+        }
+    });
+}
+
+
+
+
+export {
+    initUserEntry,
+    toggleUserEntry,
+}
+
+
+
+
+
