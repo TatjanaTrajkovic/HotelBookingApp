@@ -187,4 +187,67 @@ margin-top: 8px;
     font-size: 14px;
 }
 
+/* ipad air */
+@media (min-width: 700px) and (max-width: 1024px){
+    .cost-and-button {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        height: 100%;
+    }
+    .cost-and-button .details {
+        display: grid;
+        font-size: 12px;
+        text-align: center;
+    }
+    .cost-and-button .book-now-btn {
+        font-size: 14px;
+        transform: scale(0.8);
+    }
+}
 
+/* Mobile phones (width less than 700px) */
+@media (max-width: 700px) {
+    .card-body {
+        flex-direction: column;
+        align-items: center;
+    }
+    /* .card-image {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    } */
+    .card-info {
+        margin: 0;
+        text-align: center;
+    }
+
+    .card-info p{
+        padding: 16px 8px;
+    }
+
+    .cost-and-button {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        justify-content: center;
+        gap: 10px;
+        /* height: 100%; */
+        width: 100%;
+        
+    }
+    .cost-and-button .details {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .cost-and-button .book-now-btn {
+        font-size: 14px;
+        transform: scale(0.8);
+    }
+}
