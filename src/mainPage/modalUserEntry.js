@@ -1,5 +1,5 @@
-import  { signInUser, signUpUser } from './api/signIn.js'
-import { createModal} from './utils/baseModal.js'
+import  { signInUser, signUpUser } from '../api/signIn.js'
+import { createModal} from '../utils/baseModal.js'
 import { validateSignUpForm } from './validation.js';
 
 

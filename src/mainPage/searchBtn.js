@@ -11,7 +11,7 @@ function addSearchBtnListener(){
         sessionStorage.setItem('checkOutDate', checkOutDate);
         sessionStorage.setItem('numOfGuests', numOfGuests);
 
-        window.location.href = '/searchResultPage/searchResult.html';
+        window.location.href = 'src/searchResultPage/searchResult.html';
     });
 }
 

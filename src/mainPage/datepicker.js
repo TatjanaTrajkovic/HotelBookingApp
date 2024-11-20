@@ -1,4 +1,4 @@
-import { formatDate } from "./utils/helpers.js";
+import { formatDate } from "../utils/helpers.js";
 
 function initDateInput(){
     const checkInInput = document.getElementById('checkInDate');

@@ -3,7 +3,7 @@ import { handleBookNowClick } from "./modalBooking.js";
 function createCard(data){
     const card = document.createElement('div');
     card.classList.add('card');
-    const imagePath = '../images/imageOfRooms/';
+    const imagePath = '../../images/imageOfRooms/';
 
     card.innerHTML = `
         <div class="card-body">

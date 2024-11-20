@@ -13,7 +13,7 @@ function handleBookNowClick(roomData){
 }
 
 function createBookingModal(roomData){
-    const imagePath = `../images/imageOfRooms/${roomData.image}`;
+    const imagePath = `../../images/imageOfRooms/${roomData.image}`;
 
     createModal({
         id: 'bookingModal',
