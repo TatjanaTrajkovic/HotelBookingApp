@@ -11,13 +11,11 @@ function initUserEntry(){
     
     if(signInButton){
         signInButton.addEventListener('click', (event) => {
-            event.preventDefault();
             signInModal();
         })
     }
     if(signOutButton){
         signOutButton.addEventListener('click', (event) => {
-            event.preventDefault();
             sessionStorage.removeItem('currentUser');
             toggleUserEntry();
         })
@@ -31,10 +29,10 @@ function toggleUserEntry(){
 
     if(signInButton && signOutButton){
         if(currentUser){
-            signInButton.classList.add('d-none');// display none iz bootstrap
+            signInButton.classList.add('d-none');
             signOutButton.classList.remove('d-none');
         } else {
-            signInButton.classList.remove('d-none');// display none iz bootstrap
+            signInButton.classList.remove('d-none');
             signOutButton.classList.add('d-none');
         }
     }

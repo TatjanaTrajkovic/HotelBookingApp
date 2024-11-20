@@ -61,7 +61,7 @@ function showMoreInfo(card, data, moreInfoLink){
     `;
     card.appendChild(moreInfoDiv);
     moreInfoLink.classList.add('disabled');
-    moreInfoLink.style.pointerEvents = 'none'; // on disable da nemozes da klikas vise od jednom i dodajes na 
+    moreInfoLink.style.pointerEvents = 'none';  
 
     const closeButton = moreInfoDiv.querySelector('.close-button');
     closeButton.addEventListener('click', function(){

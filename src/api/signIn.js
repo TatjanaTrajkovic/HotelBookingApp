@@ -1,7 +1,7 @@
 
 async function signInUser(email, password){
     try{
-        const encodedMail = encodeURIComponent(email)
+        const encodedMail = encodeURIComponent(email);
         const url = `http://localhost:3000/users?email=${encodedMail}`
         const response = await fetch(url);
         let user = await response.json();
@@ -39,7 +39,7 @@ async function signUpUser(userData) {
 
         const data = await response.json();
         console.log('User signed up successfully:', data);
-        return data;  // Return the response data to use elsewhere if needed
+        return data;
     } catch (error) {
         console.error('Error during sign-up:', error);
         return null;

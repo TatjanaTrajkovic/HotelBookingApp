@@ -17,22 +17,3 @@ document.addEventListener('DOMContentLoaded', function (){
 
 
 
-
-// $(document).off('.datepicker.data-api');
-
-// $('.datepicker').datepicker({
-//     format: 'mm/dd/yyyy',
-//     startDate: '-3d'
-// });
-// $('.datepicker').datepicker({
-//     startDate: '-3d'
-// });
-// $.fn.datepicker.defaults.format = "mm/dd/yyyy";
-// $('.datepicker').datepicker({
-//     startDate: '-3d'
-// });
-// var datepicker = $.fn.datepicker.noConflict(); // return $.fn.datepicker to previously assigned value
-// $.fn.bootstrapDP = datepicker; 
-
-
-

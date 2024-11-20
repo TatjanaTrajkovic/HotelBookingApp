@@ -8,7 +8,7 @@ function initDateInput(){
     tomorrow.setDate(today.getDate() + 1);
     console.log(today, tomorrow);
 
-    const checkInCalendar = new Pikaday({  //ovo unutar viticastih su argumenti za fromdatecalender
+    const checkInCalendar = new Pikaday({ 
         field: checkInInput,
         format: "YYYY-MM-DD",
         defaultDate: today,
@@ -21,7 +21,7 @@ function initDateInput(){
         }
     })
     
-    const checkOutCalendar = new Pikaday({  //ovo unutar viticastih su argumenti za fromdatecalender
+    const checkOutCalendar = new Pikaday({  
         field: checkOutInput,
         format: "YYYY-MM-DD",
         defaultDate: tomorrow,
@@ -34,13 +34,12 @@ function initDateInput(){
         }
     });
 
-    // updateStartDate(checkInCalendar.getDate());
     checkInInput.value = formatDate(checkInCalendar.getDate());
     checkOutInput.value = formatDate(checkOutCalendar.getDate());
 
     function updateStartDate(checkInDate){
-        checkInCalendar.setStartRange(checkInDate); // ovo je start za check in calendar
-        checkOutCalendar.setStartRange(checkInDate);   // ovo je start za check out calendar
+        checkInCalendar.setStartRange(checkInDate); 
+        checkOutCalendar.setStartRange(checkInDate); 
         let nextDay = new Date(checkInDate);
         nextDay.setDate(nextDay.getDate() + 1);
         checkOutCalendar.setMinDate(nextDay);
@@ -51,8 +50,8 @@ function initDateInput(){
     }
 
     function updateEndDate(checkOutDate){
-        checkInCalendar.setEndRange(checkOutDate); // ovo je end za check in calendar
-        checkOutCalendar.setEndRange(checkOutDate);   // ovo je end za check out calendar
+        checkInCalendar.setEndRange(checkOutDate); 
+        checkOutCalendar.setEndRange(checkOutDate);
         checkInCalendar.setMaxDate(checkOutDate);
 
     }

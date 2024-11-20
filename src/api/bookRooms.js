@@ -2,10 +2,9 @@
 
 async function upDateRoomAndGuests(roomData, dates){
     const { id, bookedDates } = roomData;
-    const updatedBookedDates = [...new Set([...bookedDates, ...dates])].sort((a, b) => {
+    const updatedBookedDates = [...bookedDates, ...dates].sort((a, b) => {
         return new Date(a) - new Date(b);
     });
-    const roomsResponse = await fetch(`http://localhost:3000/rooms/${id}`);
     await fetch(`http://localhost:3000/rooms/${id}`, { 
         method: 'PATCH',
         headers: {'Content-Type': 'application/json'},
@@ -18,7 +17,7 @@ async function upDateRoomAndGuests(roomData, dates){
     if(currentUser){
         const userBooking = currentUser.bookings.find(booking => booking.roomId === id);
         if(userBooking){
-            userBooking.bookedDates = [...new Set([...userBooking.bookedDates, ...dates])].sort((a, b) => {
+            userBooking.bookedDates = [...userBooking.bookedDates, ...dates].sort((a, b) => {
                 return new Date(a) - new Date(b);
             });
         } else{

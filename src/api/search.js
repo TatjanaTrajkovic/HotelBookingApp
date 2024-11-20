@@ -21,15 +21,15 @@ function filteredData(rooms, checkInDate, checkOutDate, numOfGuests){
 
 function filterByDate(rooms, checkInDate, checkOutDate){
     let filteredRooms = rooms.filter(room => {
-        return room.bookedDates.every(date => { // ide kroz condition/uslov i prolazi kroz svaki element u nizu ako jedan element ne ispunjava uslov on vraca false ali ako svaki element ispunjava on vraca true
-            return date < checkInDate || date > checkOutDate; // true/false, gleda da li je cekindate i checkoutdate u ovom intervalu vec bukiran
+        return room.bookedDates.every(date => { 
+            return date < checkInDate || date > checkOutDate; 
         }) 
     })
     return filteredRooms;
 }
 
 function filterByGuests(rooms, numOfGuests){
-    let filteredRooms = rooms.filter(room => { // vraca samo true
+    let filteredRooms = rooms.filter(room => { 
         return room.maxOccupancy >= numOfGuests;
     })
     return filteredRooms;
