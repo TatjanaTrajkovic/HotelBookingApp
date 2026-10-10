@@ -1,0 +1,15 @@
+# Node.js
+node_modules/
+
+# Environment variables
+.env
+.env.local
+
+# Mac
+.DS_Store
+
+# Logs
+*.log
+
+# Local database
+data/data.json

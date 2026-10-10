@@ -4,12 +4,15 @@ async function signInUser(email, password){
         const encodedMail = encodeURIComponent(email);
         const url = `http://localhost:3000/users?email=${encodedMail}`
         const response = await fetch(url);
-        let user = await response.json();
-        user = user[0];
-        if(user.length === 0){
+        const users = await response.json();
+
+        if (users.length === 0) {
             console.log('User not found!');
-            return { success: false, message: 'User not found'};
+            return { success: false, message: 'User not found' };
         }
+
+        const user = users[0];
+        
         if(user.password === password){
             console.log('User signed in succesfully.');
             return { success: true, user};

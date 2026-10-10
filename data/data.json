@@ -17,13 +17,17 @@
         "Breakfast included": "<i class='fa-solid fa-bread-slice'></i>"
       },
       "bookedDates": [
-        "2024-11-15",
+        "2026-11-05",
         "2024-11-16",
         "2024-11-17",
         "2024-11-20",
         "2024-11-21",
         "2024-11-22",
-        "2024-11-23"
+        "2024-11-23",
+        "2026-10-14",
+        "2026-10-15",
+        "2026-10-16",
+        "2026-10-17"
       ]
     },
     {
@@ -232,6 +236,42 @@
       "email": "trt@trt.com",
       "password": "1234567",
       "bookings": []
+    },
+    {
+      "firstName": "Tatjana",
+      "lastName": "Trajkovic",
+      "email": "malina91983@gmail.com",
+      "password": "Trajkan81",
+      "bookings": [
+        {
+          "roomId": "1",
+          "roomName": "Room 1",
+          "bookedDates": [
+            "2026-10-14",
+            "2026-10-15",
+            "2026-10-16",
+            "2026-10-17"
+          ]
+        }
+      ],
+      "id": "-uOE8_MQmqU"
+    },
+    {
+      "firstName": "Tatjana",
+      "lastName": "Trajkovic",
+      "email": "malina91983@gmail.com",
+      "password": "Tatjana83!",
+      "bookings": [],
+      "id": "tWi7Be-5IbI"
+    },
+    {
+      "firstName": "Tatjana",
+      "lastName": "Trajkovic",
+      "email": "malina91983@gmail.com",
+      "password": "Tatjana1983",
+      "bookings": [],
+      "id": "JBdX5FT-ljE"
     }
-  ]
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
 }

@@ -155,6 +155,9 @@ function signUpModal() {
             const signUpForm = document.getElementById('signUpForm');
             signUpForm.addEventListener('submit', async function(event) {
                 event.preventDefault();
+
+                console.log('SIGN UP FORM SUBMITTED');
+
                 if (validateSignUpForm()) {
                     console.log('Sign-up form validated successfully');
                     const userData = {
