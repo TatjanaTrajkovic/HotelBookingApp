@@ -1,10 +1,9 @@
+import { getUsersByEmail, createUser } from "./db.js";
+
 
 async function signInUser(email, password){
     try{
-        const encodedMail = encodeURIComponent(email);
-        const url = `http://localhost:3000/users?email=${encodedMail}`
-        const response = await fetch(url);
-        const users = await response.json();
+        const users = await getUsersByEmail(email);
 
         if (users.length === 0) {
             console.log('User not found!');
@@ -28,19 +27,7 @@ async function signInUser(email, password){
 
 async function signUpUser(userData) {
     try {
-        const response = await fetch('http://localhost:3000/users', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(userData),
-        });
-
-        if (!response.ok) {
-            throw new Error('User signup failed');
-        }
-
-        const data = await response.json();
+        const data = await createUser(userData);
         console.log('User signed up successfully:', data);
         return data;
     } catch (error) {

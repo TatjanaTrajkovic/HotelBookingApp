@@ -1,9 +1,7 @@
-
-
+import { getRooms } from "./db.js";
 async function fetchData(checkInDate, checkOutDate, numOfGuests){
     try{
-        const response = await fetch('http://localhost:3000/rooms');
-        const result = await response.json();
+        const result = await getRooms();
         const filtRooms = filteredData(result, checkInDate, checkOutDate, numOfGuests);
         return filtRooms;
     } catch(e) {

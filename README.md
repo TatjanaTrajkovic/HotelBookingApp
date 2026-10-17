@@ -95,6 +95,12 @@ http://127.0.0.1:5500
 
 The exact port may vary.
 
+## 🌐 GitHub Pages
+
+The site can be published with GitHub Pages (Settings → Pages → Deploy from a branch → `main` / root).
+
+GitHub Pages only serves static files, so there is no JSON Server there. When the app is not running on `localhost`, it reads rooms and users from `data/data.json` and stores new users and bookings in the browser's `localStorage`. Those changes are only visible in that browser.
+
 ## 📖 How to Use
 
 1. Open the hotel website.
