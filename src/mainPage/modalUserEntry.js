@@ -170,6 +170,9 @@ function signUpModal() {
                     const result = await signUpUser(userData);
                     if (result) {
                         console.log('User signed up successfully:', result);
+                        sessionStorage.setItem('currentUser', JSON.stringify(result));
+                        toggleUserEntry();
+                        bootstrap.Modal.getInstance(modalElement).hide();
                     } else {
                         console.log('User sign-up failed');
                     }
